@@ -1,0 +1,26 @@
+{
+  "name": "zips-esports-components",
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "build-watch": "webpack --watch"
+  },
+  "dependencies": {
+    "@zipsesports/sos-wrapper": "^0.1.0",
+    "vue": "^2.6.12",
+    "vuex": "^3.5.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.3.0",
+    "dart-sass": "^1.25.0",
+    "html-webpack-plugin": "^4.4.1",
+    "sass-loader": "^10.0.2",
+    "style-loader": "^1.2.1",
+    "vue-loader": "^15.9.3",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
