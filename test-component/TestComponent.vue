@@ -1,18 +1,16 @@
 <template>
 	<div class="app">
-		<ul v-if="events.length">
-			<li v-for="event in events" :key="event">
-				{{event.type}}: {{event.main_target.name}}
-			</li>
-		</ul>
-		<p v-else>
-			Nothing has happened yet!
-		</p>
+		<h2>Game time</h2>
+		<p>{{prettyTime}}</p>
+		<h2>Raw game state</h2>
+		<pre><code>{{prettyGameData}}</code></pre>
+		<h2>Raw player state</h2>
+		<pre><code>{{prettyPlayersData}}</code></pre>
 	</div>
 </template>
 
 <script>
-import createSOSEmitter from '@zipsesports/sos-wrapper';
+import {mapState} from 'vuex';
 
 export default {
 	data () {
@@ -20,30 +18,33 @@ export default {
 			events: [],
 		};
 	},
-	async created () {
-		const emitter = await createSOSEmitter();
-		emitter.on('game:statfeed_event', event => {
-			this.events.push(event);
-		});
+	computed: {
+		...mapState({
+			game: state => state.gameData.game,
+			players: state => state.gameData.players,
+		}),
+		prettyTime () {
+			return new Date(this.game && this.game.time * 1000).toISOString().substr(14, 5).replace(/^0/, '');
+		},
+		prettyGameData () {
+			return JSON.stringify(this.game, null, '\t');
+		},
+		prettyPlayersData () {
+			return JSON.stringify(this.players, null, '\t');
+		},
 	},
 };
 </script>
 
 <style lang="scss">
 .app {
-	box-sizing: border-box;
-	padding: 20px;
-	font-size: 1.5rem;
-	width: 300;
-	height: 800;
-	background-color: white;
-	font-family: sans-serif;
-	overflow: hidden;
-	border-radius: 20px;
-
-	ul,
-	p {
-		margin: 0;
-	}
+  font-family: sans-serif;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  ul,
+  p {
+    margin: 0;
+  }
 }
 </style>
