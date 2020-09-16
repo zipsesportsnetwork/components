@@ -1,6 +1,9 @@
 <template>
 	<div class="app" v-if="game && players">
-        <h1>{{game.teams[0].name}}: {{game.teams[0].score}}</h1>
+        <h1>
+            <span>{{game.teams[0].name}}</span>
+            <span>{{game.teams[0].score}}</span>
+        </h1>
         <player-display
             v-for="player in teamOnePlayers"
             :key="player.id"
@@ -40,6 +43,9 @@ export default {
   border-radius: 20px;
   h1 {
     margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 </style>

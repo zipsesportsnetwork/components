@@ -1,7 +1,7 @@
 <template>
     <div class="player-display">
         <h2>{{player.id}}</h2>
-        <label>Boost: {{player.boost}}% <progress max="100" :value="player.boost"></progress></label>
+        <progress max="100" :value="player.boost"></progress>
     </div>
 </template>
 
@@ -21,7 +21,8 @@ export default {
     margin: 0 0 5px;
   }
   progress {
-    float: right;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 </style>
