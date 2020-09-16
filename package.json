@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@zipsesports/sos-wrapper": "^0.1.0",
+    "script-ext-html-webpack-plugin": "^2.1.4",
     "vue": "^2.6.12",
     "vuex": "^3.5.1"
   },
