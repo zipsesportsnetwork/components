@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 
 import { rocketLeagueDataModule, rocketLeagueDataPlugin } from '../common/plugin';
 
-import TestComponent from './TestComponent';
+import TestComponent from './Test';
 
 Vue.use(Vuex);
 
