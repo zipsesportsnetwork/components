@@ -23,7 +23,7 @@ module.exports = {
 		// What to name each bundled JS file (this is only used intermediately,
 		// the bundle files are eventually inlined into the generated HTML files
 		// and discarded)
-		filename: '[hash].js',
+		filename: '[chunkhash].js',
 	},
 	resolve: {
 		extensions: [
