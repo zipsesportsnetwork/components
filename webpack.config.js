@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const chunks = {
 	'test-component': './test-component/index.js',
 	'team-one-players': './team-one-players/index.js',
+	'team-two-players': './team-two-players/index.js',
 };
 
 module.exports = {
