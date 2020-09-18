@@ -9,6 +9,7 @@ const chunks = {
 	'Debug info': './test-component/index.js',
 	'Team 1 Players': './team-one-players/index.js',
 	'Team 2 Players': './team-two-players/index.js',
+	'Targeted Player': './stat-box/index.js'
 };
 
 module.exports = {
