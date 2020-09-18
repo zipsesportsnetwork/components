@@ -3,6 +3,14 @@ Shared Vue components used on overlays and webpages
 
 ## Usage
 
+TODO: write this
+
+- Mention GitHub releases for downloading everything
+- Provide Bakke's Mod installation instructions
+- Talk about usage in OBS
+
+## Development
+
 ```bash
 # Install dependencies
 npm install
