@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "build-watch": "webpack --watch"
+    "build-watch": "webpack --watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@zipsesports/sos-wrapper": "^0.1.0",
@@ -13,12 +15,18 @@
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
+    "@storybook/addon-actions": "^6.0.21",
+    "@storybook/addon-essentials": "^6.0.21",
+    "@storybook/addon-links": "^6.0.21",
+    "@storybook/vue": "^6.0.21",
     "babel-loader": "^8.1.0",
     "css-loader": "^4.3.0",
     "dart-sass": "^1.25.0",
     "html-webpack-plugin": "^4.4.1",
+    "react-is": "^16.13.1",
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
+    "typescript": "^4.0.3",
     "vue-loader": "^15.9.3",
     "vue-template-compiler": "^2.6.12",
     "webpack": "^4.44.1",
