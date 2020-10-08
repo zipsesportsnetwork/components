@@ -6,7 +6,7 @@ import {
   rocketLeagueDataPlugin,
 } from "../common/plugin";
 
-import TeamTwoPlayersComponent from "./TeamTwoPlayers";
+import ScorebugComponent from "./Scorebug";
 
 Vue.use(Vuex);
 
@@ -24,5 +24,5 @@ const store = new Vuex.Store({
 new Vue({
   store,
   el: "#app",
-  render: (h) => h(TeamTwoPlayersComponent),
+  render: (h) => h(ScorebugComponent),
 });
