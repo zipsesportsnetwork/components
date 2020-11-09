@@ -13,7 +13,7 @@ const chunks = {
   Scorebug: "./scorebug/index.js",
   Scorebug_bo5: "./scorebug/index_bo5.js",
   Scorebug_bo7: "./scorebug/index_bo7.js",
-  Colorbox: "./colorbox/index.html",
+  Colorbox: "./colorbox/index.js",
 };
 
 module.exports = {
@@ -66,10 +66,6 @@ module.exports = {
       {
         test: /\.svg$/,
         loader: "url-loader",
-      },
-      {
-        test: /\.html$/i,
-        loader: "html-loader",
       },
     ],
   },
