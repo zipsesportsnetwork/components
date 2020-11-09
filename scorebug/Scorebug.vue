@@ -1,46 +1,59 @@
 <template>
   <container class="app" v-if="game && !game.hasWinner">
     <div class="top">
-    <banner
-      class="banner outer left"
-      :nomargin="true"
-      :left="true"
-      :primary="!flipped ? 'blue' : 'gold'"
-      :accent="flipped ? 'blue' : 'gold'"
-      ><span class="name">{{ teams[0].name }}</span></banner
-    >
-    <banner
-      class="banner inner left"
-      :nomargin="true"
-      :left="true"
-      :primary="tie ? (!flipped ? 'gold' : 'blue') : winnerColor"
-      :accent="flipped ? 'gold' : 'blue'"
-      ><span class="score">{{ teams[0].score }}</span></banner
-    >
-    <div :class="['time', winnerColor]">{{ time }}</div>
-    <banner
-      class="banner inner right"
-      :nomargin="true"
-      :right="true"
-      :primary="tie ? (!flipped ? 'blue' : 'gold') : winnerColor"
-      :accent="flipped ? 'blue' : 'gold'"
-      ><span class="score">{{ teams[1].score }}</span></banner
-    >
-    <banner
-      class="banner outer right"
-      :nomargin="true"
-      :right="true"
-      :primary="!flipped ? 'gold' : 'blue'"
-      :accent="flipped ? 'gold' : 'blue'"
-      ><span class="name">{{ teams[1].name }}</span></banner
-    >
+      <banner
+        class="banner outer left"
+        :nomargin="true"
+        :left="true"
+        :primary="!flipped ? 'blue' : 'gold'"
+        :accent="flipped ? 'blue' : 'gold'"
+        ><span class="name">{{ teams[0].name }}</span></banner
+      >
+      <banner
+        class="banner inner left"
+        :nomargin="true"
+        :left="true"
+        :primary="tie ? (!flipped ? 'gold' : 'blue') : winnerColor"
+        :accent="flipped ? 'gold' : 'blue'"
+        ><span class="score">{{ teams[0].score }}</span></banner
+      >
+      <div :class="['time', winnerColor]">{{ time }}</div>
+      <banner
+        class="banner inner right"
+        :nomargin="true"
+        :right="true"
+        :primary="tie ? (!flipped ? 'blue' : 'gold') : winnerColor"
+        :accent="flipped ? 'blue' : 'gold'"
+        ><span class="score">{{ teams[1].score }}</span></banner
+      >
+      <banner
+        class="banner outer right"
+        :nomargin="true"
+        :right="true"
+        :primary="!flipped ? 'gold' : 'blue'"
+        :accent="flipped ? 'gold' : 'blue'"
+        ><span class="name">{{ teams[1].name }}</span></banner
+      >
     </div>
     <div class="bottom">
-      <banner class="banner" :nomargin="true" :left="true" :right="true" primary="white" accent="gray">
+      <banner
+        class="banner"
+        :nomargin="true"
+        :left="true"
+        :right="true"
+        primary="white"
+        accent="gray"
+      >
         <div class="slot">
-          <div v-for="n in seriesWinReq" :key="n" class="series left"><div class="cutout left"></div></div>
-          <div :class="['status', status === '' ? 'none' : status]">{{ status }}</div>
-          <div v-for="n in seriesWinReq" :key="n" class="series right"><div class="cutout right"></div></div>
+          <div v-for="n in seriesWinReq" :key="n" class="series left">
+            <div class="cutout left"></div>
+          </div>
+          <div :class="['status', status === '' ? 'none' : status]">
+            {{ status }}
+          </div>
+          <div v-for="n in seriesWinReq" :key="n" class="series right">
+            <div class="cutout right"></div>
+          </div>
         </div>
       </banner>
     </div>
@@ -65,11 +78,11 @@ export default {
   props: {
     bestof: {
       type: Number,
-      default: 5
+      default: 5,
     },
     flipped: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   components: {
     Banner,
@@ -102,16 +115,16 @@ export default {
     },
     status(state) {
       if (state.game.isReplay) {
-        return 'REPLAY';
+        return "REPLAY";
       } else if (state.game.isOT) {
-        return 'OVERTIME';
+        return "OVERTIME";
       } else {
-        return '';
+        return "";
       }
     },
     seriesWinReq() {
       return (this.bestof + 1) / 2;
-    }
+    },
   },
 };
 </script>
@@ -123,11 +136,11 @@ body {
   background: #444;
 }
 
-.app, .top {
+.app,
+.top {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .app {
@@ -136,60 +149,60 @@ body {
 
 .top {
   z-index: 1;
-.time {
-  width: 6ch;
-  text-align: center;
-  font-size: 64px;
-  font-family: Consolas, monospace;
-  font-weight: 800;
-  line-height: 102px;
-  border: 6px solid white;
-}
+  .time {
+    width: 6ch;
+    text-align: center;
+    font-size: 64px;
+    font-family: Consolas, monospace;
+    font-weight: 800;
+    line-height: 102px;
+    border: 6px solid white;
+  }
 
-.time.gray {
-  background: #222;
-}
+  .time.gray {
+    background: #222;
+  }
 
-.time.blue {
-  background: $blue;
-}
+  .time.blue {
+    background: $blue;
+  }
 
-.time.gold {
-  background: $gold;
-}
+  .time.gold {
+    background: $gold;
+  }
 
-.banner.outer {
-  z-index: -1;
-  /*width: 8ch;*/
-}
+  .banner.outer {
+    z-index: -1;
+    /*width: 8ch;*/
+  }
 
-.banner.left {
-  text-align: left;
-}
+  .banner.left {
+    text-align: left;
+  }
 
-.banner.right {
-  text-align: right;
-}
+  .banner.right {
+    text-align: right;
+  }
 
-.banner.outer.left {
-  margin-right: -36px;
-}
+  .banner.outer.left {
+    margin-right: -36px;
+  }
 
-.banner.outer.right {
-  margin-left: -36px;
-}
+  .banner.outer.right {
+    margin-left: -36px;
+  }
 
-.score {
-  width: 2.5ch;
-  display: block;
-}
+  .score {
+    width: 2.5ch;
+    display: block;
+  }
 
-.name {
-  width: 16ch;
-  display: block;
-  font-size: 36px;
-  padding-top: 8px;
-}
+  .name {
+    width: 16ch;
+    display: block;
+    font-size: 36px;
+    padding-top: 8px;
+  }
 }
 
 .bottom {
@@ -232,15 +245,37 @@ body {
   }
 
   .cutout.right {
-    -webkit-mask-image:
-      linear-gradient(288deg, black 12.5%, transparent 12.5%, transparent 75%, black 75%),
-      linear-gradient(to bottom, black 55%, transparent 55%, transparent 87.5%, black 87.5%);
+    -webkit-mask-image: linear-gradient(
+        288deg,
+        black 12.5%,
+        transparent 12.5%,
+        transparent 75%,
+        black 75%
+      ),
+      linear-gradient(
+        to bottom,
+        black 55%,
+        transparent 55%,
+        transparent 87.5%,
+        black 87.5%
+      );
   }
 
   .cutout.left {
-    -webkit-mask-image:
-      linear-gradient(72deg, black 12.5%, transparent 12.5%, transparent 75%, black 75%),
-      linear-gradient(to bottom, black 55%, transparent 55%, transparent 87.5%, black 87.5%);
+    -webkit-mask-image: linear-gradient(
+        72deg,
+        black 12.5%,
+        transparent 12.5%,
+        transparent 75%,
+        black 75%
+      ),
+      linear-gradient(
+        to bottom,
+        black 55%,
+        transparent 55%,
+        transparent 87.5%,
+        black 87.5%
+      );
   }
 }
 </style>

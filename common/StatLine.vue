@@ -1,29 +1,19 @@
 <template>
   <div class="stats">
     <div>
-      <img :src="ScoreIcon" /><span class="stat">{{
-        player.score
-      }}</span>
+      <img :src="ScoreIcon" /><span class="stat">{{ player.score }}</span>
     </div>
     <div>
-      <img :src="GoalIcon" /><span class="stat">{{
-        player.goals
-      }}</span>
+      <img :src="GoalIcon" /><span class="stat">{{ player.goals }}</span>
     </div>
     <div>
-      <img :src="AssistIcon" /><span class="stat">{{
-        player.assists
-      }}</span>
+      <img :src="AssistIcon" /><span class="stat">{{ player.assists }}</span>
     </div>
     <div>
-      <img :src="SaveIcon" /><span class="stat">{{
-        player.saves
-      }}</span>
+      <img :src="SaveIcon" /><span class="stat">{{ player.saves }}</span>
     </div>
     <div>
-      <img :src="ShotIcon" /><span class="stat">{{
-        player.shots
-      }}</span>
+      <img :src="ShotIcon" /><span class="stat">{{ player.shots }}</span>
     </div>
   </div>
 </template>
@@ -36,14 +26,14 @@ import GoalIcon from "../static/goal.svg";
 import AssistIcon from "../static/assist.svg";
 
 export default {
-    props: ['player'],
-    data: () => ({
-      ShotIcon,
-      ScoreIcon,
-      SaveIcon,
-      GoalIcon,
-      AssistIcon,
-    }),
+  props: ["player"],
+  data: () => ({
+    ShotIcon,
+    ScoreIcon,
+    SaveIcon,
+    GoalIcon,
+    AssistIcon,
+  }),
 };
 </script>
 

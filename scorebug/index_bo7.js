@@ -24,9 +24,10 @@ const store = new Vuex.Store({
 new Vue({
   store,
   el: "#app",
-  render: (h) => h(ScorebugComponent, {
-    props: {
-      bestof: 7
-    }
-  }),
+  render: (h) =>
+    h(ScorebugComponent, {
+      props: {
+        bestof: 7,
+      },
+    }),
 });

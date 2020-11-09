@@ -11,7 +11,7 @@
     >
     <div class="box">
       <div class="name">{{ targetedPlayer.name }}</div>
-      <stat-line :player="targetedPlayer"/>
+      <stat-line :player="targetedPlayer" />
       <!--
       <div class="stats">
         <div>
@@ -62,7 +62,7 @@ export default {
   components: {
     Banner,
     Container,
-    StatLine
+    StatLine,
   },
   data: () => ({
     ShotIcon,
