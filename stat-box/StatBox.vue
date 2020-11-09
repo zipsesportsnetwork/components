@@ -1,11 +1,11 @@
 <template>
-  <container v-if="targetedPlayer" class="app">
+  <container v-if="targetedPlayer" :class="['app', color]">
     <banner
       class="banner"
       :left="true"
       :right="true"
-      primary="gold"
-      accent="blue"
+      primary="white"
+      :accent="color"
       nomargin="true"
       >SPECTATING</banner
     >
@@ -81,11 +81,16 @@ export default {
         return undefined;
       return state.players[state.game.target];
     },
+    color() {
+      return this.targetedPlayer.team === 0 ? "blue" : "gold";
+    },
   },
 };
 </script>
 
 <style lang="scss">
+@import "../common/colors.scss";
+
 .app {
   opacity: 0.75;
 }
@@ -105,6 +110,7 @@ export default {
 
 .banner {
   text-align: center;
+  color: $gray;
 }
 
 .name {
@@ -118,10 +124,17 @@ export default {
   width: 72px;
 }
 
+.app.blue .box {
+  background: linear-gradient($blue, transparent);
+}
+
+.app.gold .box {
+  background: linear-gradient($gold, transparent);
+}
+
 .box {
   width: calc(100% - 108px);
   margin-left: 54px;
-  background: linear-gradient(#041e42, transparent);
 }
 
 table {

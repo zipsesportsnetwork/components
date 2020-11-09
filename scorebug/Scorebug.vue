@@ -2,36 +2,38 @@
   <container class="app" v-if="game && !game.hasWinner">
     <div class="top">
       <banner
-        class="banner outer left"
+        :class="['banner', 'outer', 'left', flipped ? 'gold' : 'blue']"
         :nomargin="true"
         :left="true"
-        :primary="!flipped ? 'blue' : 'gold'"
-        :accent="flipped ? 'blue' : 'gold'"
+        primary="white"
+        :accent="flipped ? 'gold' : 'blue'"
+        :nosidepadding="true"
         ><span class="name">{{ teams[0].name }}</span></banner
       >
       <banner
-        class="banner inner left"
+        :class="['banner', 'inner', 'left', flipped ? 'gold' : 'blue']"
         :nomargin="true"
         :left="true"
-        :primary="tie ? (!flipped ? 'gold' : 'blue') : winnerColor"
+        primary="white"
         :accent="flipped ? 'gold' : 'blue'"
         ><span class="score">{{ teams[0].score }}</span></banner
       >
       <div :class="['time', winnerColor]">{{ time }}</div>
       <banner
-        class="banner inner right"
+        :class="['banner', 'inner', 'right', flipped ? 'blue' : 'gold']"
         :nomargin="true"
         :right="true"
-        :primary="tie ? (!flipped ? 'blue' : 'gold') : winnerColor"
+        primary="white"
         :accent="flipped ? 'blue' : 'gold'"
         ><span class="score">{{ teams[1].score }}</span></banner
       >
       <banner
-        class="banner outer right"
+        :class="['banner', 'outer', 'right', flipped ? 'blue' : 'gold']"
         :nomargin="true"
         :right="true"
-        :primary="!flipped ? 'gold' : 'blue'"
-        :accent="flipped ? 'gold' : 'blue'"
+        primary="white"
+        :accent="flipped ? 'blue' : 'gold'"
+        :nosidepadding="true"
         ><span class="name">{{ teams[1].name }}</span></banner
       >
     </div>
@@ -149,6 +151,8 @@ body {
 
 .top {
   z-index: 1;
+  color: $gray;
+
   .time {
     width: 6ch;
     text-align: center;
@@ -157,6 +161,7 @@ body {
     font-weight: 800;
     line-height: 102px;
     border: 6px solid white;
+    color: white;
   }
 
   .time.gray {
@@ -173,9 +178,10 @@ body {
 
   .banner.outer {
     z-index: -1;
-    /*width: 8ch;*/
+    text-align: center !important;
   }
 
+  /*
   .banner.left {
     text-align: left;
   }
@@ -183,18 +189,28 @@ body {
   .banner.right {
     text-align: right;
   }
+  */
 
   .banner.outer.left {
     margin-right: -36px;
+
+    .name {
+      padding-right: 24px;
+    }
   }
 
   .banner.outer.right {
     margin-left: -36px;
+
+    .name {
+      padding-left: 24px;
+    }
   }
 
   .score {
     width: 2.5ch;
     display: block;
+    text-align: center;
   }
 
   .name {

@@ -46,7 +46,7 @@ export default {
   }
 
   span {
-    color: $blue;
+    color: $gray;
   }
 
   progress {
@@ -57,12 +57,12 @@ export default {
   }
 
   progress[value]::-webkit-progress-bar {
-    background-color: $gold-accent;
+    background-color: white;
     box-shadow: inset 0px 0px 3px 0px black;
   }
 
   progress[value]::-webkit-progress-value {
-    background-color: $blue;
+    background-color: $gray;
     transition: width 0.2s ease;
   }
 
@@ -70,7 +70,7 @@ export default {
     width: 28px;
     height: 28px;
     padding-top: 36px;
-    background-color: $blue;
+    background-color: $gray;
     -webkit-mask: url(../static/score.svg) no-repeat center;
   }
 }

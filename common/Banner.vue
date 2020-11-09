@@ -10,7 +10,7 @@
     ]"
   >
     <div class="slant left" v-if="left"></div>
-    <div class="slot"><slot></slot></div>
+    <div :class="['slot', nopadding ? '' : 'sidepadding']"><slot></slot></div>
     <div class="slant right" v-if="right"></div>
   </div>
 </template>
@@ -19,7 +19,7 @@
 import { mapState } from "vuex";
 
 export default {
-  props: ["left", "right", "primary", "accent", "nomargin"],
+  props: ["left", "right", "primary", "accent", "nomargin", "nopadding"],
 };
 </script>
 
@@ -112,10 +112,13 @@ export default {
 }
 
 .slot {
-  padding-left: 24px;
-  padding-right: 24px;
   padding-top: 18px;
   padding-bottom: 24px;
   flex-grow: 1;
+}
+
+.slot.sidepadding {
+  padding-left: 24px;
+  padding-right: 24px;
 }
 </style>

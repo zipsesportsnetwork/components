@@ -4,10 +4,10 @@
       class="banner"
       :left="side === 'right'"
       :right="side === 'left'"
-      primary="blue"
-      accent="gold"
+      primary="white"
+      :accent="color"
     >
-      <span>{{ game.teams[team].name }}</span>
+      <span class="name">{{ game.teams[team].name }}</span>
     </banner>
     <div class="displays">
       <player-display
@@ -39,6 +39,9 @@ export default {
       if (!this.players) return [];
       return Object.values(this.players).filter((p) => p.team === this.team);
     },
+    color() {
+      return this.team === 0 ? "blue" : "gold";
+    },
     side() {
       return this.team === 0 ? "left" : "right";
     },
@@ -61,8 +64,12 @@ export default {
 <style lang="scss">
 @import "colors.scss";
 
+.app .name {
+  color: $gray;
+}
+
 .app .displays {
-  background: $gold;
+  background: white;
   box-shadow: inset 0 18px 18px -18px rgba(0, 0, 0, 0.5),
     0 18px 18px -18px black;
   padding-bottom: 24px;
