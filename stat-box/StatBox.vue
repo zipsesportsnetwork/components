@@ -11,6 +11,8 @@
     >
     <div class="box">
       <div class="name">{{ targetedPlayer.name }}</div>
+      <stat-line :player="targetedPlayer"/>
+      <!--
       <div class="stats">
         <div>
           <img :src="ScoreIcon" /><span class="stat">{{
@@ -38,6 +40,7 @@
           }}</span>
         </div>
       </div>
+      -->
     </div>
   </container>
 </template>
@@ -47,6 +50,7 @@ import { mapState } from "vuex";
 
 import Banner from "../common/Banner";
 import Container from "../common/Container";
+import StatLine from "../common/StatLine";
 
 import ShotIcon from "../static/shot.svg";
 import ScoreIcon from "../static/scorev2.svg";
@@ -58,6 +62,7 @@ export default {
   components: {
     Banner,
     Container,
+    StatLine
   },
   data: () => ({
     ShotIcon,

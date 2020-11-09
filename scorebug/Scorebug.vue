@@ -1,5 +1,6 @@
 <template>
   <container class="app" v-if="game && !game.hasWinner">
+    <div class="top">
     <banner
       class="banner outer left"
       :nomargin="true"
@@ -33,6 +34,16 @@
       :accent="flipped ? 'gold' : 'blue'"
       ><span class="name">{{ teams[1].name }}</span></banner
     >
+    </div>
+    <div class="bottom">
+      <banner class="banner" :nomargin="true" :left="true" :right="true" primary="white" accent="gray">
+        <div class="slot">
+          <div v-for="n in seriesWinReq" :key="n" class="series left"><div class="cutout left"></div></div>
+          <div :class="['status', status === '' ? 'none' : status]">{{ status }}</div>
+          <div v-for="n in seriesWinReq" :key="n" class="series right"><div class="cutout right"></div></div>
+        </div>
+      </banner>
+    </div>
   </container>
 </template>
 
@@ -51,7 +62,15 @@ function invertColor(input) {
 }
 
 export default {
-  props: ["flipped"],
+  props: {
+    bestof: {
+      type: Number,
+      default: 5
+    },
+    flipped: {
+      type: Boolean
+    }
+  },
   components: {
     Banner,
     Container,
@@ -81,6 +100,18 @@ export default {
         return "gray";
       }
     },
+    status(state) {
+      if (state.game.isReplay) {
+        return 'REPLAY';
+      } else if (state.game.isOT) {
+        return 'OVERTIME';
+      } else {
+        return '';
+      }
+    },
+    seriesWinReq() {
+      return (this.bestof + 1) / 2;
+    }
   },
 };
 </script>
@@ -88,12 +119,23 @@ export default {
 <style lang="scss">
 @import "../common/colors.scss";
 
-.app {
+body {
+  background: #444;
+}
+
+.app, .top {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
+.app {
+  flex-direction: column;
+}
+
+.top {
+  z-index: 1;
 .time {
   width: 6ch;
   text-align: center;
@@ -147,5 +189,58 @@ export default {
   display: block;
   font-size: 36px;
   padding-top: 8px;
+}
+}
+
+.bottom {
+  color: #222;
+
+  .banner {
+    margin-top: -48px;
+  }
+
+  .slot {
+    background: transparent !important;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .series {
+    height: 100%;
+  }
+
+  .status {
+    width: 10ch;
+    font-size: 36px;
+    text-align: center;
+    background: white;
+    padding-top: 46px;
+    border-bottom: 11px solid white;
+  }
+
+  .status.none {
+    border-bottom: 56px solid white;
+  }
+
+  .cutout {
+    width: 4ch;
+    height: 100%;
+    background-color: white;
+  }
+
+  .cutout.right {
+    -webkit-mask-image:
+      linear-gradient(288deg, black 12.5%, transparent 12.5%, transparent 75%, black 75%),
+      linear-gradient(to bottom, black 55%, transparent 55%, transparent 87.5%, black 87.5%);
+  }
+
+  .cutout.left {
+    -webkit-mask-image:
+      linear-gradient(72deg, black 12.5%, transparent 12.5%, transparent 75%, black 75%),
+      linear-gradient(to bottom, black 55%, transparent 55%, transparent 87.5%, black 87.5%);
+  }
 }
 </style>

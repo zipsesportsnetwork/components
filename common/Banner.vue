@@ -60,6 +60,12 @@ export default {
   }
 }
 
+.banner.primary-white.accent-gray {
+  @include combo(white, $gray);
+}
+.banner.primary-white.accent-white {
+  @include combo(white, white);
+}
 .banner.primary-white.accent-blue {
   @include combo(white, $blue);
 }

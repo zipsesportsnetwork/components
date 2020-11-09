@@ -15,6 +15,7 @@
         :side="side"
         :key="player.id"
         :player="player"
+        :targeted="player.id === targetedPlayerId"
       />
     </div>
   </container>
@@ -46,6 +47,11 @@ export default {
     },
     right() {
       return this.side === "right";
+    },
+    targetedPlayerId(state) {
+      if (!state.game || !state.game.hasTarget || state.game.hasWinner)
+        return undefined;
+      return state.players[state.game.target].id;
     },
   },
   props: ["team", "players", "game"],
