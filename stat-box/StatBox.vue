@@ -82,7 +82,7 @@ export default {
       return state.players[state.game.target];
     },
     color() {
-      return this.targetedPlayer.team === 0 ? "blue" : "gold";
+      return this.targetedPlayer.team === 0 ? "blue" : "orange";
     },
   },
 };
@@ -128,8 +128,8 @@ export default {
   background: linear-gradient($blue, transparent);
 }
 
-.app.gold .box {
-  background: linear-gradient($gold, transparent);
+.app.orange .box {
+  background: linear-gradient($orange, transparent);
 }
 
 .box {

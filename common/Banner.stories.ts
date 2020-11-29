@@ -16,13 +16,13 @@ export default {
     primary: {
       control: {
         type: "inline-radio",
-        options: ["blue", "gold", "white"],
+        options: ["blue", "orange", "white"],
       },
     },
     accent: {
       control: {
         type: "inline-radio",
-        options: ["blue", "gold", "white"],
+        options: ["blue", "orange", "white"],
       },
     },
     nomargin: { control: "boolean" },

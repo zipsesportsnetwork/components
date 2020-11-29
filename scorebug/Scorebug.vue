@@ -2,37 +2,37 @@
   <container class="app" v-if="game && !game.hasWinner">
     <div class="top">
       <banner
-        :class="['banner', 'outer', 'left', flipped ? 'gold' : 'blue']"
+        :class="['banner', 'outer', 'left', flipped ? 'orange' : 'blue']"
         :nomargin="true"
         :left="true"
         primary="white"
-        :accent="flipped ? 'gold' : 'blue'"
+        :accent="flipped ? 'orange' : 'blue'"
         :nosidepadding="true"
         ><span class="name">{{ teams[0].name }}</span></banner
       >
       <banner
-        :class="['banner', 'inner', 'left', flipped ? 'gold' : 'blue']"
+        :class="['banner', 'inner', 'left', flipped ? 'orange' : 'blue']"
         :nomargin="true"
         :left="true"
         primary="white"
-        :accent="flipped ? 'gold' : 'blue'"
+        :accent="flipped ? 'orange' : 'blue'"
         ><span class="score">{{ teams[0].score }}</span></banner
       >
       <div :class="['time', winnerColor]">{{ time }}</div>
       <banner
-        :class="['banner', 'inner', 'right', flipped ? 'blue' : 'gold']"
+        :class="['banner', 'inner', 'right', flipped ? 'blue' : 'orange']"
         :nomargin="true"
         :right="true"
         primary="white"
-        :accent="flipped ? 'blue' : 'gold'"
+        :accent="flipped ? 'blue' : 'orange'"
         ><span class="score">{{ teams[1].score }}</span></banner
       >
       <banner
-        :class="['banner', 'outer', 'right', flipped ? 'blue' : 'gold']"
+        :class="['banner', 'outer', 'right', flipped ? 'blue' : 'orange']"
         :nomargin="true"
         :right="true"
         primary="white"
-        :accent="flipped ? 'blue' : 'gold'"
+        :accent="flipped ? 'blue' : 'orange'"
         :nosidepadding="true"
         ><span class="name">{{ teams[1].name }}</span></banner
       >
@@ -70,7 +70,7 @@ import Container from "../common/Container";
 
 function invertColor(input) {
   if (input === "blue") {
-    return "gold";
+    return "orange";
   } else {
     return "blue";
   }
@@ -108,9 +108,9 @@ export default {
     },
     winnerColor(state) {
       if (state.game.teams[0].score > state.game.teams[1].score) {
-        return !this.flipped ? "blue" : "gold";
+        return !this.flipped ? "blue" : "orange";
       } else if (state.game.teams[0].score < state.game.teams[1].score) {
-        return !this.flipped ? "gold" : "blue";
+        return !this.flipped ? "orange" : "blue";
       } else {
         return "gray";
       }
@@ -135,7 +135,7 @@ export default {
 @import "../common/colors.scss";
 
 body {
-  background: #444;
+  background: black;
 }
 
 .app,
@@ -165,15 +165,15 @@ body {
   }
 
   .time.gray {
-    background: #222;
+    background: $gray;
   }
 
   .time.blue {
     background: $blue;
   }
 
-  .time.gold {
-    background: $gold;
+  .time.orange {
+    background: $orange;
   }
 
   .banner.outer {
@@ -222,7 +222,7 @@ body {
 }
 
 .bottom {
-  color: #222;
+  color: $gray;
 
   .banner {
     margin-top: -48px;

@@ -40,7 +40,7 @@ export default {
       return Object.values(this.players).filter((p) => p.team === this.team);
     },
     color() {
-      return this.team === 0 ? "blue" : "gold";
+      return this.team === 0 ? "blue" : "orange";
     },
     side() {
       return this.team === 0 ? "left" : "right";

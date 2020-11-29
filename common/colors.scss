@@ -1,4 +1,14 @@
-$blue: #041e42;
-$gold: #a89968;
-$gold-accent: #84754e;
-$gray: #222;
+$uakron-blue: #041e42;
+$uakron-gold: #a89968;
+$uakron-unofficial-gray: #222;
+
+$rl-blue: #6392ff;
+$rl-blue-alt: #406ef5;
+$rl-orange: #ffa263;
+$rl-orange-alt: #ea7d41;
+$rl-white-alt: #fefefe;
+$rl-gray-alt: #414340;
+
+$blue: $rl-blue-alt;
+$orange: $rl-orange-alt;
+$gray: $rl-gray-alt;

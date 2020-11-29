@@ -69,11 +69,11 @@ export default {
 .banner.primary-white.accent-blue {
   @include combo(white, $blue);
 }
-.banner.primary-white.accent-gold {
-  @include combo(white, $gold);
+.banner.primary-white.accent-orange {
+  @include combo(white, $orange);
 }
-.banner.primary-blue.accent-gold {
-  @include combo($blue, $gold);
+.banner.primary-blue.accent-orange {
+  @include combo($blue, $orange);
 }
 .banner.primary-blue.accent-blue {
   @include combo($blue, $blue);
@@ -81,14 +81,14 @@ export default {
 .banner.primary-blue.accent-white {
   @include combo($blue, white);
 }
-.banner.primary-gold.accent-blue {
-  @include combo($gold, $blue);
+.banner.primary-orange.accent-blue {
+  @include combo($orange, $blue);
 }
-.banner.primary-gold.accent-gold {
-  @include combo($gold, $gold);
+.banner.primary-orange.accent-orange {
+  @include combo($orange, $orange);
 }
-.banner.primary-gold.accent-white {
-  @include combo($gold, white);
+.banner.primary-orange.accent-white {
+  @include combo($orange, white);
 }
 
 .banner.margin.right {
